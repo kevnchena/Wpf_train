@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="質數列表" Height="450" Width="800">
     <Grid>
         <Button Content="按我" HorizontalAlignment="Left" Margin="610,46,0,0" VerticalAlignment="Top" Height="36" Width="81" FontFamily="Yu Gothic UI" FontSize="24" FontWeight="Bold" Click="Button_Click"/>
         <Label Content="請輸入一個數值N" HorizontalAlignment="Left" Margin="40,52,0,0" VerticalAlignment="Top" Height="30" Width="168" FontSize="20" Cursor="Arrow" FontFamily="Arial"/>
         <TextBox x:Name="textbox1" HorizontalAlignment="Left" Margin="226,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" Height="34" TextChanged="TextBox_TextChanged" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,105,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="146" Width="721" Foreground="Black" Background="#FFE9FFE4" FontSize="18"/>
 
     </Grid>
 </Window>
