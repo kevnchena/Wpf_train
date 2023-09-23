@@ -17,17 +17,57 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int n = Convert.ToInt32(textbox1.Text);
-            MessageBox.Show($"您所輸入的值為{n}");
-            for (int i = 2; i<=n; i++)
+            //int n = Convert.ToInt32(textbox1.Text);
+            //MessageBox.Show($"您所輸入的值為{n}");
+            int number;
+            
+            bool success = int.TryParse(textbox1.Text, out number); //如果textbox1是可以轉換成數字 ， out給number
+
+            if (!success)
             {
-                if (isPrime(i)) { primes.Add(i); }
+                MessageBox.Show("請輸入整數","輸入錯誤");
             }
+            else if (number < 2)
+            {
+                MessageBox.Show($"輸入數值為{number}，請輸入大於2的整數", "輸入錯誤");
+            }
+            else
+            {
+                for (int i = 2; i <= number; i++)
+                {
+                    if (isPrime(i)) { primes.Add(i); }
+                }
+            }
+            ListResult(primes, number);
         }
 
-        private bool isPrime(int i)
+        private void ListResult(List<int> myPrimes, int n)
         {
-            Console.WriteLine("判斷");
+            string primeLsit = $"小於等於{n}的質數為: ";
+            string primeMulti = "";
+
+            foreach (int p in myPrimes)
+            {
+                primeLsit += $"{p}  ";
+                primeMulti += $"{p}的倍數為: ";
+                int i = 1;
+                while (i * p <= n)
+                {
+                    primeMulti += $"{i * p}  ";
+                    i++;
+                }
+                primeMulti += "\n";
+            }
+            textblock.Text = primeLsit;
+            textblock2.Text = primeMulti;
+        }
+
+        private bool isPrime(int p)
+        {
+            for(int i = 2; i < p; i++)
+            {
+                if (p % i == 0) return false;
+            }
             return true;
         }
     }
